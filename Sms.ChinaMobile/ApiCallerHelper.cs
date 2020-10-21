@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Sms.ChinaMobile.Services
+namespace Sms.ChinaMobile
 {
     /// <summary>
     /// ApiHelper 辅助进行api请求

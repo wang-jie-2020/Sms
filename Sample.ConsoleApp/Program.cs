@@ -11,22 +11,17 @@ namespace Sample.ConsoleApp
             var services = new ServiceCollection();
 
             services.AddLogging(x => x.AddConsole());
-            //services.AddCap(x =>
-            //{
-            //    //console app does not support dashboard
+            services.AddSms(x =>
+            {
+                x.UseChinaMobile(z =>
+                {
 
-            //    x.UseMySql("Server=192.168.3.57;Port=3307;Database=captest;Uid=root;Pwd=123123;");
-            //    x.UseRabbitMQ(z =>
-            //    {
-            //        z.HostName = "192.168.3.57";
-            //        z.UserName = "user";
-            //        z.Password = "wJ0p5gSs17";
-            //    });
-            //});
+                });
+            });
 
-            //services.AddSingleton<EventSubscriber>();
-            //var sp = container.BuildServiceProvider();
-            //sp.GetService<IBootstrapper>().BootstrapAsync(default);
+            var sp = services.BuildServiceProvider();
+
+            //sp.GetService<ISmsService>().Send();
 
             Console.ReadLine();
         }
