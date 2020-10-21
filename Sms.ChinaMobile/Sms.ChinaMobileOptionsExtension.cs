@@ -18,6 +18,9 @@ namespace Sms.ChinaMobile
 
         public void AddServices(IServiceCollection services)
         {
+            //Inject Services
+
+            //Add ChinaMobileOptions
             services.Configure(_configure);
             services.AddSingleton<IConfigureOptions<ChinaMobileOptions>, ConfigureChinaMobileOptions>();
         }

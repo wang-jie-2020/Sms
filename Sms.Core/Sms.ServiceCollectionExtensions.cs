@@ -21,6 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             //Inject Services
 
+            //Options and extension service
             var options = new SmsOptions();
             setupAction?.Invoke(options);
 
