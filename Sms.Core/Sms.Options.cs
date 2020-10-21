@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sms.Core
+namespace Sms
 {
     public class SmsOptions
     {

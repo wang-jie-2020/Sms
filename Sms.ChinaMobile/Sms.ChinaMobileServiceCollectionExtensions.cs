@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Sms.ChinaMobile;
-using Sms.Core;
+using Sms;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

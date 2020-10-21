@@ -1,10 +1,10 @@
-﻿using Sms.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Sms;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -18,6 +18,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new InvalidOperationException("SMS services already registered");
 
             ServiceCollection = services;
+
+            //Inject Services
 
             var options = new SmsOptions();
             setupAction?.Invoke(options);
