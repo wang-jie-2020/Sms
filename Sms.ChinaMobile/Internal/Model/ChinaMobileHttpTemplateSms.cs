@@ -47,11 +47,11 @@ namespace Sms.ChinaMobile.Internal.Model
         /// </summary>
         public string AddSerial { get; set; }
 
-        /// <summary>
-        /// API输入参数签名结果
-        /// 签名算法：将ecName，apId，secretKey，templateId，mobiles，params，sign，addSerial的值按照顺序拼接（中间无符号），然后通过md5(32位小写)计算后得出的值
-        /// </summary>
-        public string Mac { get; set; }
+        ///// <summary>
+        ///// API输入参数签名结果
+        ///// 签名算法：将ecName，apId，secretKey，templateId，mobiles，params，sign，addSerial的值按照顺序拼接（中间无符号），然后通过md5(32位小写)计算后得出的值
+        ///// </summary>
+        //public string Mac { get; set; }
 
         /// <summary>
         /// 请求地址
