@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,7 +47,7 @@ namespace Sms.ChinaMobile
             return rsp;
         }
 
-        public async Task<SmsRsp> SendTemplateSms(string[] mobiles, string templateId, string[] parameters)
+        public async Task<SmsRsp> SendTemplateSms(string[] mobiles, string templateId, Dictionary<string, string> parameters)
         {
             var input = new ChinaMobileHttpTemplateSms
             {
@@ -56,7 +57,7 @@ namespace Sms.ChinaMobile
                 SecretKey = _options.AppSecret,
                 Mobiles = mobiles,
                 TemplateId = templateId,
-                Params = parameters,
+                Params = parameters.Values.ToArray(),
                 Sign = _options.Sign,
                 AddSerial = _options.AddSerial,
                 Url = _options.TmpSubmitUrl

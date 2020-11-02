@@ -29,8 +29,8 @@ namespace Sms.Test
             var chinaMobileOptions = sp.GetRequiredService<IOptions<ChinaMobileOptions>>();
             var smsService = sp.GetRequiredService<ISmsService>();
 
-            Assert.NotNull(smsOptions);
-            Assert.NotNull(chinaMobileOptions);
+            Assert.Equal("v1.0", smsOptions.Value.Version);
+            Assert.Equal("test", chinaMobileOptions.Value.AppId);
             Assert.NotNull(smsService);
         }
     }

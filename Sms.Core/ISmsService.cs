@@ -9,6 +9,6 @@ namespace Sms
     {
         Task<SmsRsp> SendNormalSms(string[] mobiles, string content);
 
-        Task<SmsRsp> SendTemplateSms(string[] mobiles, string templateId, string[] parameters);
+        Task<SmsRsp> SendTemplateSms(string[] mobiles, string templateId, Dictionary<string, string> parameters);
     }
 }
