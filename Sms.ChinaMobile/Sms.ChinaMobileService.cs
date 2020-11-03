@@ -48,7 +48,7 @@ namespace Sms.ChinaMobile
             {
                 result.Success = false;
                 result.RspCode = string.Empty;
-                result.RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(ex.Message);
+                result.RspMsg = ex.Message;
             }
 
             return result;
@@ -83,7 +83,7 @@ namespace Sms.ChinaMobile
             {
                 result.Success = false;
                 result.RspCode = string.Empty;
-                result.RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(ex.Message);
+                result.RspMsg = ex.Message;
             }
 
             return result;
