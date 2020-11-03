@@ -23,56 +23,70 @@ namespace Sms.ChinaMobile
 
         public async Task<SmsRsp> SendNormalSms(string[] mobiles, string content)
         {
-            var input = new ChinaMobileHttpNormalSms
+            var result = new SmsRsp();
+
+            try
             {
-                EcName = _options.EcName,
-                ApId = _options.AppId,
-                SecretKey = _options.AppSecret,
-                Mobiles = mobiles,
-                Content = content,
-                Sign = _options.Sign,
-                AddSerial = _options.AddSerial,
-                Url = _options.NorSubmitUrl
-            };
+                var input = new ChinaMobileHttpNormalSms
+                {
+                    EcName = _options.EcName,
+                    ApId = _options.AppId,
+                    SecretKey = _options.AppSecret,
+                    Mobiles = mobiles,
+                    Content = content,
+                    Sign = _options.Sign,
+                    AddSerial = _options.AddSerial,
+                    Url = _options.NorSubmitUrl
+                };
 
-            var result = await _client.SendNormalSms(input);
-
-            var rsp = new SmsRsp
+                var rsp = await _client.SendNormalSms(input);
+                result.Success = rsp.Success;
+                result.RspCode = rsp.Rspcod;
+                result.RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(rsp.Rspcod);
+            }
+            catch (Exception ex)
             {
-                Success = result.Success,
-                RspCode = result.Rspcod,
-                RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(result.Rspcod)
-            };
+                result.Success = false;
+                result.RspCode = string.Empty;
+                result.RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(ex.Message);
+            }
 
-            return rsp;
+            return result;
         }
 
         public async Task<SmsRsp> SendTemplateSms(string[] mobiles, string templateId, Dictionary<string, string> parameters)
         {
-            var input = new ChinaMobileHttpTemplateSms
+            var result = new SmsRsp();
+
+            try
             {
+                var input = new ChinaMobileHttpTemplateSms
+                {
 
-                EcName = _options.EcName,
-                ApId = _options.AppId,
-                SecretKey = _options.AppSecret,
-                Mobiles = mobiles,
-                TemplateId = templateId,
-                Params = parameters.Values.ToArray(),
-                Sign = _options.Sign,
-                AddSerial = _options.AddSerial,
-                Url = _options.TmpSubmitUrl
-            };
+                    EcName = _options.EcName,
+                    ApId = _options.AppId,
+                    SecretKey = _options.AppSecret,
+                    Mobiles = mobiles,
+                    TemplateId = templateId,
+                    Params = parameters.Values.ToArray(),
+                    Sign = _options.Sign,
+                    AddSerial = _options.AddSerial,
+                    Url = _options.TmpSubmitUrl
+                };
 
-            var result = await _client.SendTemplateSms(input);
-
-            var rsp = new SmsRsp
+                var rsp = await _client.SendTemplateSms(input);
+                result.Success = rsp.Success;
+                result.RspCode = rsp.Rspcod;
+                result.RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(rsp.Rspcod);
+            }
+            catch (Exception ex)
             {
-                Success = result.Success,
-                RspCode = result.Rspcod,
-                RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(result.Rspcod)
-            };
+                result.Success = false;
+                result.RspCode = string.Empty;
+                result.RspMsg = EnumHelper.GetEnumDesc<ChinaMobileHttpRspCode>(ex.Message);
+            }
 
-            return rsp;
+            return result;
         }
     }
 }
