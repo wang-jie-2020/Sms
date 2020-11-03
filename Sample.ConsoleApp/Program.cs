@@ -14,8 +14,10 @@ namespace Sample.ConsoleApp
     {
         static void Main(string[] args)
         {
-            HSSample.ServiceSample();
+            //ChinaMobileSample.ServiceSample();
+            //AliSample.ServiceSample();
 
+            Sample.ServiceSample();
             Console.ReadLine();
         }
     }

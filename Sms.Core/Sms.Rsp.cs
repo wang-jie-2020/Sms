@@ -12,4 +12,9 @@ namespace Sms
 
         public string RspMsg { get; set; }
     }
+
+    public class SmsRsp<T> : SmsRsp
+    {
+        public List<T> Data { get; set; }
+    }
 }

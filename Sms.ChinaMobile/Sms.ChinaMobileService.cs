@@ -21,7 +21,7 @@ namespace Sms.ChinaMobile
             _options = options.Value;
         }
 
-        public async Task<SmsRsp> SendNormalSms(string[] mobiles, string content)
+        public async Task<SmsRsp> SendNormalSms(string[] mobiles, string content, string sign = "")
         {
             var result = new SmsRsp();
 
@@ -34,7 +34,7 @@ namespace Sms.ChinaMobile
                     SecretKey = _options.AppSecret,
                     Mobiles = mobiles,
                     Content = content,
-                    Sign = _options.Sign,
+                    Sign = string.IsNullOrWhiteSpace(sign) ? _options.Sign : sign,
                     AddSerial = _options.AddSerial,
                     Url = _options.NorSubmitUrl
                 };
@@ -54,7 +54,7 @@ namespace Sms.ChinaMobile
             return result;
         }
 
-        public async Task<SmsRsp> SendTemplateSms(string[] mobiles, string templateId, Dictionary<string, string> parameters)
+        public async Task<SmsRsp> SendTemplateSms(string[] mobiles, string templateId, Dictionary<string, string> parameters, string sign = "")
         {
             var result = new SmsRsp();
 
@@ -69,7 +69,7 @@ namespace Sms.ChinaMobile
                     Mobiles = mobiles,
                     TemplateId = templateId,
                     Params = parameters.Values.ToArray(),
-                    Sign = _options.Sign,
+                    Sign = string.IsNullOrWhiteSpace(sign) ? _options.Sign : sign,
                     AddSerial = _options.AddSerial,
                     Url = _options.TmpSubmitUrl
                 };

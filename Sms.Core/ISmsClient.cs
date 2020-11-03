@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sms
 {
-    public interface ISmsClient
-    {
-    }
+    //public interface ISmsClient
+    //{
+    //}
 }

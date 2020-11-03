@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sms.Aliyun\Sms.Aliyun.csproj" />
     <ProjectReference Include="..\Sms.ChinaMobile\Sms.ChinaMobile.csproj" />
     <ProjectReference Include="..\Sms.Core\Sms.Core.csproj" />
   </ItemGroup>

@@ -339,4 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /oldData.rar
-/Sample.ConsoleApp/HSSample.cs
+/Sample.ConsoleApp/ChinaMobileSample.cs
+/Sample.ConsoleApp/AliSample.cs
