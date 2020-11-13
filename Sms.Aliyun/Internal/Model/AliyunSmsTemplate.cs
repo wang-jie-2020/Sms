@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sms.Aliyun.Internal.Model
 {
-    public class AliTemplateSms
+    public class AliyunSmsTemplate
     {
         /// <summary>
         /// 模板Id

@@ -4,36 +4,27 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Sms.ChinaMobile
+namespace Sms.Aliyun
 {
-    public class ChinaMobileOptions
+    public class AliyunSmsOptions
     {
-        public string EcName { get; set; }
+        public string AccessKeyId { get; set; }
 
-        public string AppId { get; set; }
-
-        public string AppSecret { get; set; }
+        public string AccessKeySecret { get; set; }
 
         public string Sign { get; set; }
-
-        public string AddSerial { get; set; }
-
-        public string NorSubmitUrl { get; set; }
-
-        public string TmpSubmitUrl { get; set; }
-
     }
 
-    internal class ConfigureChinaMobileOptions : IConfigureOptions<ChinaMobileOptions>
+    internal class ConfigureAliyunSmsOptions : IConfigureOptions<AliyunSmsOptions>
     {
         private readonly IServiceScopeFactory _serviceScopeFactory;
 
-        public ConfigureChinaMobileOptions(IServiceScopeFactory serviceScopeFactory)
+        public ConfigureAliyunSmsOptions(IServiceScopeFactory serviceScopeFactory)
         {
             _serviceScopeFactory = serviceScopeFactory;
         }
 
-        public void Configure(ChinaMobileOptions options)
+        public void Configure(AliyunSmsOptions options)
         {
             /*
              *  Do Extra Configure

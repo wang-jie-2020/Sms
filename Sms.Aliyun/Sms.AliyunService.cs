@@ -10,12 +10,12 @@ using Sms.Aliyun.Internal.Model;
 
 namespace Sms.Aliyun
 {
-    public class AliyunService : ISmsService, IAliSmsService
+    public class AliyunService : ISmsService, IAliyunSmsService
     {
         private readonly AliyunClient _client;
-        private readonly AliyunOptions _options;
+        private readonly AliyunSmsOptions _options;
 
-        public AliyunService(IOptions<AliyunOptions> options)
+        public AliyunService(IOptions<AliyunSmsOptions> options)
         {
             _options = options.Value;
             _client = new AliyunClient(options.Value.AccessKeyId, options.Value.AccessKeySecret);
@@ -33,7 +33,7 @@ namespace Sms.Aliyun
 
             try
             {
-                var input = new AliTemplateSms
+                var input = new AliyunSmsTemplate
                 {
                     TemplateCode = templateId,
                     Mobiles = mobiles,
@@ -63,7 +63,7 @@ namespace Sms.Aliyun
             return result;
         }
 
-        public async Task<SmsRsp<QuerySendDetailsResponse.QuerySendDetails_SmsSendDetailDTO>> QuerySendDetails(AliQuerySendDetailsInput input)
+        public async Task<SmsRsp<QuerySendDetailsResponse.QuerySendDetails_SmsSendDetailDTO>> QuerySendDetails(AliyunSmsQuerySendDetailsInput input)
         {
             var result = new SmsRsp<QuerySendDetailsResponse.QuerySendDetails_SmsSendDetailDTO>();
 

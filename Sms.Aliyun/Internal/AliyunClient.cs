@@ -46,7 +46,7 @@ namespace Sms.Aliyun.Internal
             }
         }
 
-        public async Task<SendSmsResponse> SendTemplateSms(AliTemplateSms input)
+        public async Task<SendSmsResponse> SendTemplateSms(AliyunSmsTemplate input)
         {
             var request = new SendSmsRequest()
             {
@@ -65,7 +65,7 @@ namespace Sms.Aliyun.Internal
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public Task<QuerySendDetailsResponse> QuerySendDetails(AliQuerySendDetailsInput input)
+        public Task<QuerySendDetailsResponse> QuerySendDetails(AliyunSmsQuerySendDetailsInput input)
         {
             var request = new QuerySendDetailsRequest
             {

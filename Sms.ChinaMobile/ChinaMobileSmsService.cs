@@ -10,12 +10,12 @@ using Sms.ChinaMobile.Internal.Model;
 
 namespace Sms.ChinaMobile
 {
-    public class ChinaMobileService : ISmsService
+    public class ChinaMobileSmsService : ISmsService
     {
         private readonly ChinaMobileHttpClient _client;
-        private readonly ChinaMobileOptions _options;
+        private readonly ChinaMobileSmsOptions _options;
 
-        public ChinaMobileService(ChinaMobileHttpClient client, IOptions<ChinaMobileOptions> options)
+        public ChinaMobileSmsService(ChinaMobileHttpClient client, IOptions<ChinaMobileSmsOptions> options)
         {
             _client = client;
             _options = options.Value;

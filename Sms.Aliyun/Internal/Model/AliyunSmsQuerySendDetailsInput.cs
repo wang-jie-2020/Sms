@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sms.Aliyun.Internal.Model
 {
-    public class AliQuerySendDetailsInput
+    public class AliyunSmsQuerySendDetailsInput
     {
         public string Mobile { get; set; }
 

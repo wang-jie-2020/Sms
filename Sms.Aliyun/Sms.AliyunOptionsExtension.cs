@@ -12,9 +12,9 @@ namespace Sms.ChinaMobile
 {
     public class AliyunOptionsExtension : ISmsOptionsExtension
     {
-        private readonly Action<AliyunOptions> _configure;
+        private readonly Action<AliyunSmsOptions> _configure;
 
-        public AliyunOptionsExtension(Action<AliyunOptions> configure)
+        public AliyunOptionsExtension(Action<AliyunSmsOptions> configure)
         {
             _configure = configure;
         }
@@ -24,11 +24,11 @@ namespace Sms.ChinaMobile
             //Inject Services
             //services.TryAddTransient<AliyunClient>();
             services.TryAddEnumerable(ServiceDescriptor.Transient<ISmsService, AliyunService>());
-            services.TryAddEnumerable(ServiceDescriptor.Transient<IAliSmsService, AliyunService>());
+            services.TryAddEnumerable(ServiceDescriptor.Transient<IAliyunSmsService, AliyunService>());
 
             //Add ChinaMobileOptions
             services.Configure(_configure);
-            services.AddSingleton<IConfigureOptions<AliyunOptions>, ConfigureAliyunOptions>();
+            services.AddSingleton<IConfigureOptions<AliyunSmsOptions>, ConfigureAliyunSmsOptions>();
 
         }
     }

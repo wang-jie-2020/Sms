@@ -26,7 +26,7 @@ namespace Sms.Test
             var sp = services.BuildServiceProvider();
 
             var smsOptions = sp.GetRequiredService<IOptions<SmsOptions>>();
-            var chinaMobileOptions = sp.GetRequiredService<IOptions<ChinaMobileOptions>>();
+            var chinaMobileOptions = sp.GetRequiredService<IOptions<ChinaMobileSmsOptions>>();
             var smsService = sp.GetRequiredService<ISmsService>();
 
             Assert.Equal("v1.0", smsOptions.Value.Version);

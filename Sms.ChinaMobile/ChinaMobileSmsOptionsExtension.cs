@@ -9,11 +9,11 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Sms.ChinaMobile
 {
-    public class ChinaMobileOptionsExtension : ISmsOptionsExtension
+    public class ChinaMobileSmsOptionsExtension : ISmsOptionsExtension
     {
-        private readonly Action<ChinaMobileOptions> _configure;
+        private readonly Action<ChinaMobileSmsOptions> _configure;
 
-        public ChinaMobileOptionsExtension(Action<ChinaMobileOptions> configure)
+        public ChinaMobileSmsOptionsExtension(Action<ChinaMobileSmsOptions> configure)
         {
             _configure = configure;
         }
@@ -22,11 +22,11 @@ namespace Sms.ChinaMobile
         {
             //Inject Services
             services.TryAddTransient<ChinaMobileHttpClient>();
-            services.TryAddEnumerable(ServiceDescriptor.Transient<ISmsService, ChinaMobileService>());
+            services.TryAddEnumerable(ServiceDescriptor.Transient<ISmsService, ChinaMobileSmsService>());
 
             //Add ChinaMobileOptions
             services.Configure(_configure);
-            services.AddSingleton<IConfigureOptions<ChinaMobileOptions>, ConfigureChinaMobileOptions>();
+            services.AddSingleton<IConfigureOptions<ChinaMobileSmsOptions>, ConfigureChinaMobileSmsOptions>();
         }
     }
 }

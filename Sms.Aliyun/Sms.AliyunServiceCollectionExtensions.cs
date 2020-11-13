@@ -12,7 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        public static SmsOptions UseAliyun(this SmsOptions options, Action<AliyunOptions> configure)
+        public static SmsOptions UseAliyun(this SmsOptions options, Action<AliyunSmsOptions> configure)
         {
             if (configure == null)
             {

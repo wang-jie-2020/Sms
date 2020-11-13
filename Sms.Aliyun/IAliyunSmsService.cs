@@ -7,13 +7,13 @@ using Sms.Aliyun.Internal.Model;
 
 namespace Sms.Aliyun
 {
-    public interface IAliSmsService
+    public interface IAliyunSmsService
     {
         /// <summary>
         /// 查看短信发送记录和发送状态。
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<SmsRsp<QuerySendDetailsResponse.QuerySendDetails_SmsSendDetailDTO>> QuerySendDetails(AliQuerySendDetailsInput input);
+        Task<SmsRsp<QuerySendDetailsResponse.QuerySendDetails_SmsSendDetailDTO>> QuerySendDetails(AliyunSmsQuerySendDetailsInput input);
     }
 }
